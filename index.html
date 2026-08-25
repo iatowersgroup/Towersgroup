@@ -127,7 +127,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:var(--navy);paddi
 .carousel-dots{display:flex;justify-content:center;gap:.5rem;margin-top:1rem;padding-bottom:.5rem}
 .carousel-dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.28);border:none;cursor:pointer;padding:0;transition:all .25s}
 .carousel-dot.active{background:var(--amber);width:22px;border-radius:4px}
-.exp-note{text-align:center;margin-top:1rem;font-size:.78rem;color:rgba(255,255,255,.35);font-style:italic}
 
 /* CONTACT */
 .contact{background:var(--navy);padding:5rem 5%}
@@ -404,7 +403,6 @@ footer{background:var(--navy2);padding:3rem 5% 2rem;border-top:1px solid rgba(25
     <button class="carousel-dot" data-idx="6" aria-label="Slide 7"></button>
     <button class="carousel-dot" data-idx="7" aria-label="Slide 8"></button>
   </div>
-  <p class="exp-note">Upload exp-01.jpg … exp-11.jpg to show your project photos</p>
 </section>
 
 <!-- CONTACT -->
@@ -416,12 +414,12 @@ footer{background:var(--navy2);padding:3rem 5% 2rem;border-top:1px solid rgba(25
         <p>Whether you have a large-scale infrastructure project or need expert consulting, our team is ready to deliver a solution engineered for your exact requirements.</p>
       </div>
       <div class="contact-form-card">
-        <form id="contactForm">
-          <div class="form-group"><label>Full name</label><input type="text" required></div>
-          <div class="form-group"><label>Email address</label><input type="email" required></div>
-          <div class="form-group"><label>Company</label><input type="text"></div>
+        <form id="contactForm" action="https://formspree.io/f/xzepnajk" method="POST">
+          <div class="form-group"><label>Full name</label><input type="text" name="name" required></div>
+          <div class="form-group"><label>Email address</label><input type="email" name="email" required></div>
+          <div class="form-group"><label>Company</label><input type="text" name="company"></div>
           <div class="form-group"><label>Service of Interest</label>
-            <select>
+            <select name="service">
               <option value="">Select a service</option>
               <option>High &amp; Medium Voltage Systems</option>
               <option>Low Voltage Systems</option>
@@ -429,7 +427,7 @@ footer{background:var(--navy2);padding:3rem 5% 2rem;border-top:1px solid rgba(25
               <option>Electrical Supplies &amp; Technical Assistance</option>
             </select>
           </div>
-          <div class="form-group"><label>Message</label><textarea required></textarea></div>
+          <div class="form-group"><label>Message</label><textarea name="message" required></textarea></div>
           <button type="submit" class="btn-submit" id="submitBtn">Send Message &#10140;</button>
         </form>
       </div>
@@ -517,12 +515,21 @@ track.addEventListener('touchend',e=>{var dx=e.changedTouches[0].clientX-tx;if(M
 document.getElementById('carousel').addEventListener('mouseenter',()=>clearInterval(timer));
 document.getElementById('carousel').addEventListener('mouseleave',reset);
 
-// FORM
+// FORM — Formspree submission
 document.getElementById('contactForm').addEventListener('submit',function(e){
-  e.preventDefault();
   var btn=document.getElementById('submitBtn');
-  btn.textContent='Message Sent! ✓';btn.style.background='#16a34a';
-  setTimeout(()=>{btn.textContent='Send Message ➤';btn.style.background='';this.reset();},4200);
+  btn.textContent='Sending…';btn.disabled=true;
+  // Formspree handles the POST; page will redirect to Formspree thank-you unless we use fetch
+  var data=new FormData(this);
+  fetch('https://formspree.io/f/xzepnajk',{method:'POST',body:data,headers:{Accept:'application/json'}})
+    .then(function(r){
+      if(r.ok){btn.textContent='Message Sent! ✓';btn.style.background='#16a34a';
+        document.getElementById('contactForm').reset();
+        setTimeout(()=>{btn.textContent='Send Message ➤';btn.style.background='';btn.disabled=false;},4200);
+      } else {btn.textContent='Error — try again';btn.disabled=false;}
+    })
+    .catch(function(){btn.textContent='Error — try again';btn.disabled=false;});
+  e.preventDefault();
 });
 </script>
 
