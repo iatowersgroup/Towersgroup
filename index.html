@@ -2,8 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Towers Group — Electrical Engineering solutions for HV/LV systems, consulting, and industrial supplies. Based in Barranquilla, Colombia.">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Towers Group</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,600;0,700;0,800;1,700&family=Barlow:wght@400;500;600;700&display=swap">
@@ -105,9 +104,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:var(--navy);paddi
 .experience{background:var(--navy2);padding:4.5rem 0}
 .experience .exp-header{text-align:center;padding:0 5%;margin-bottom:2rem}
 .experience h2{font-family:'Barlow Condensed',sans-serif;font-size:clamp(1.8rem,3.5vw,2.5rem);font-weight:700;color:#fff;font-style:italic}
-.carousel-wrap{position:relative;overflow:hidden;width:100%}
-.carousel-track{display:flex;transition:transform .5s cubic-bezier(.4,0,.2,1)}
-.carousel-slide{flex:0 0 100%;position:relative;min-height:320px;background:#0B2035}
+.carousel-wrap{position:relative;overflow:hidden;width:100%;padding:0 4rem}
+.carousel-track{display:flex;gap:1rem;transition:transform .5s cubic-bezier(.4,0,.2,1)}
+.carousel-slide{flex:0 0 calc(33.333% - 0.667rem);position:relative;border-radius:10px;overflow:hidden;background:#0B2035}
 .cs1{background:linear-gradient(135deg,#0B2035 0%,#1A3A5C 100%)}
 .cs2{background:linear-gradient(135deg,#0F2840 0%,#1E3D64 100%)}
 .cs3{background:linear-gradient(135deg,#0A1D30 0%,#163355 100%)}
@@ -116,12 +115,10 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:var(--navy);paddi
 .cs6{background:linear-gradient(135deg,#0B1E32 0%,#152C50 100%)}
 .cs7{background:linear-gradient(135deg,#112745 0%,#1C3B65 100%)}
 .cs8{background:linear-gradient(135deg,#0E2238 0%,#183460 100%)}
-.cs9{background:linear-gradient(135deg,#091C2E 0%,#143050 100%)}
-.cs10{background:linear-gradient(135deg,#0C2035 0%,#172E55 100%)}
-.cs11{background:linear-gradient(135deg,#0F2540 0%,#1D3A62 100%)}
 
-.carousel-slide img{width:100%;height:380px;object-fit:cover;display:block}
-.carousel-controls{position:absolute;top:50%;left:0;right:0;transform:translateY(-50%);display:flex;justify-content:space-between;padding:0 1rem;pointer-events:none}
+.carousel-slide img{width:100%;height:240px;object-fit:cover;display:block;transition:transform .4s ease}
+.carousel-slide:hover img{transform:scale(1.04)}
+.carousel-controls{position:absolute;top:50%;left:0;right:0;transform:translateY(-50%);display:flex;justify-content:space-between;padding:0 .5rem;pointer-events:none}
 .carousel-btn{pointer-events:all;background:rgba(11,29,53,.65);border:1.5px solid rgba(255,255,255,.3);color:#fff;width:42px;height:42px;border-radius:50%;font-size:1.1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s}
 .carousel-btn:hover{background:var(--amber);border-color:var(--amber);color:var(--navy)}
 .carousel-dots{display:flex;justify-content:center;gap:.5rem;margin-top:1rem;padding-bottom:.5rem}
@@ -133,7 +130,13 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:var(--navy);paddi
 .contact .container{max-width:1100px;margin:0 auto}
 .contact-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:4rem;align-items:start}
 .contact-text h2{font-family:'Barlow Condensed',sans-serif;font-size:clamp(1.6rem,3vw,2.3rem);font-weight:700;line-height:1.2;margin-bottom:1rem;color:#fff}
-.contact-text p{color:var(--muted);font-size:.9rem;line-height:1.7}
+.contact-text>p{color:var(--muted);font-size:.9rem;line-height:1.7;margin-bottom:1.8rem}
+.contact-offices{display:flex;flex-direction:column;gap:1.5rem}
+.office-block{border-left:2px solid var(--amber);padding-left:1rem}
+.office-label{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.88rem;color:var(--amber);letter-spacing:.07em;text-transform:uppercase;display:block;margin-bottom:.4rem}
+.office-addr{color:#fff;font-size:.87rem;line-height:1.5;margin-bottom:.5rem}
+.office-block a{display:block;color:var(--muted);font-size:.82rem;text-decoration:none;line-height:1.8;transition:color .2s}
+.office-block a:hover{color:var(--amber)}
 .contact-form-card{background:#fff;border-radius:var(--radius);padding:2.2rem 2rem;box-shadow:0 8px 32px rgba(0,0,0,.22)}
 .form-group{margin-bottom:1.1rem}
 .form-group label{display:block;font-size:.82rem;font-weight:600;color:#333;margin-bottom:.3rem}
@@ -162,6 +165,8 @@ footer{background:var(--navy2);padding:3rem 5% 2rem;border-top:1px solid rgba(25
   .contact-grid{grid-template-columns:1fr}
   .footer-inner{grid-template-columns:1fr 1fr}
   .stat-item{padding:0 1.5rem}
+  .carousel-slide{flex:0 0 calc(50% - 0.5rem)}
+  .carousel-slide img{height:200px}
 }
 @media(max-width:640px){
   .nav-links{display:none;flex-direction:column;position:absolute;top:72px;left:0;right:0;background:var(--navy2);padding:1.5rem 5%;gap:1rem;box-shadow:0 8px 20px rgba(0,0,0,.3)}
@@ -172,7 +177,8 @@ footer{background:var(--navy2);padding:3rem 5% 2rem;border-top:1px solid rgba(25
   .stat-item{border-right:none!important;border-bottom:1px solid rgba(255,255,255,.15);padding:.7rem 0}
   .footer-inner{grid-template-columns:1fr}
   .hero-content{padding:0 5%}
-  .carousel-slide img{height:260px}
+  .carousel-slide{flex:0 0 calc(100% - 0px)}
+  .carousel-slide img{height:220px}
 }
 @media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--card:#162840;--card-text:#E0EAF5;--card-muted:#8BAAC8}}
 </style>
@@ -412,6 +418,22 @@ footer{background:var(--navy2);padding:3rem 5% 2rem;border-top:1px solid rgba(25
       <div class="contact-text">
         <h2>Let's build something exceptional together</h2>
         <p>Whether you have a large-scale infrastructure project or need expert consulting, our team is ready to deliver a solution engineered for your exact requirements.</p>
+        <div class="contact-offices">
+          <div class="office-block">
+            <span class="office-label">🇨🇴 Colombia</span>
+            <p class="office-addr">Cra. 57 #99A-65, Riomar<br>Barranquilla, Atlántico</p>
+            <a href="tel:+573188275226">+57 318 827 5226</a>
+            <a href="tel:+573012762197">+57 301 276 2197</a>
+            <a href="mailto:soporte.tecnico@towersgroup.co">soporte.tecnico@towersgroup.co</a>
+            <a href="mailto:administracion@towersgroup.co">administracion@towersgroup.co</a>
+          </div>
+          <div class="office-block">
+            <span class="office-label">🇺🇸 United States</span>
+            <p class="office-addr">1001 NW 7th St<br>Miami, FL 33136</p>
+            <a href="tel:+13058969384">+1 (305) 896-9384</a>
+            <a href="mailto:info.tgbs@towersgroup.co">info.tgbs@towersgroup.co</a>
+          </div>
+        </div>
       </div>
       <div class="contact-form-card">
         <form id="contactForm" action="https://formspree.io/f/xzepnajk" method="POST">
@@ -456,8 +478,11 @@ footer{background:var(--navy2);padding:3rem 5% 2rem;border-top:1px solid rgba(25
     </div>
     <div class="footer-col">
       <h4>Contact</h4>
-      <p>Barranquilla, Colombia</p><p>United States Office</p>
-      <a href="mailto:info@towersgroup.com">info@towersgroup.com</a>
+      <p>Cra. 57 #99A-65, Riomar<br>Barranquilla, Atlántico</p>
+      <p>1001 NW 7th St, Miami, FL 33136</p>
+      <a href="tel:+573188275226">+57 318 827 5226</a>
+      <a href="tel:+13058969384">+1 (305) 896-9384</a>
+      <a href="mailto:info.tgbs@towersgroup.co">info.tgbs@towersgroup.co</a>
     </div>
   </div>
   <div class="footer-bottom">
@@ -493,26 +518,49 @@ document.querySelectorAll('.nav-links a').forEach(a=>a.addEventListener('click',
   }catch(e){showImg();}
 })();
 
-// CAROUSEL
+// CAROUSEL — multi-slide, infinite loop
 const track=document.getElementById('carouselTrack');
 const dots=document.querySelectorAll('.carousel-dot');
-let cur=0,total=11,timer;
-function goTo(n){
-  cur=(n+total)%total;
-  track.style.transform='translateX(-'+cur*100+'%)';
-  dots.forEach((d,i)=>d.classList.toggle('active',i===cur));
+const TOTAL=8;
+let cur=0,timer;
+
+function perView(){
+  if(window.innerWidth<=640)return 1;
+  if(window.innerWidth<=900)return 2;
+  return 3;
 }
-document.getElementById('prevBtn').addEventListener('click',()=>{goTo(cur-1);reset();});
-document.getElementById('nextBtn').addEventListener('click',()=>{goTo(cur+1);reset();});
-dots.forEach(d=>d.addEventListener('click',()=>{goTo(+d.dataset.idx);reset();}));
-function reset(){clearInterval(timer);timer=setInterval(()=>goTo(cur+1),5000);}
+function maxCur(){return TOTAL-perView();}
+
+function slideW(){
+  var s=track.children[0];
+  if(!s)return 0;
+  var gap=parseFloat(getComputedStyle(track).gap)||16;
+  return s.getBoundingClientRect().width+gap;
+}
+
+function goTo(n){
+  var mx=maxCur();
+  // wrap: past last → go to first, before first → go to last
+  if(n>mx)n=0;
+  if(n<0)n=mx;
+  cur=n;
+  track.style.transform='translateX(-'+(cur*slideW())+'px)';
+  dots.forEach(function(d,i){d.classList.toggle('active',i===cur);});
+}
+
+document.getElementById('prevBtn').addEventListener('click',function(){goTo(cur-1);reset();});
+document.getElementById('nextBtn').addEventListener('click',function(){goTo(cur+1);reset();});
+dots.forEach(function(d){d.addEventListener('click',function(){goTo(+d.dataset.idx);reset();});});
+function reset(){clearInterval(timer);timer=setInterval(function(){goTo(cur+1);},5000);}
 reset();
-// touch
+window.addEventListener('resize',function(){goTo(cur);});
+
+// touch swipe
 var tx=0;
-track.addEventListener('touchstart',e=>{tx=e.touches[0].clientX;},{passive:true});
-track.addEventListener('touchend',e=>{var dx=e.changedTouches[0].clientX-tx;if(Math.abs(dx)>40){goTo(dx<0?cur+1:cur-1);reset();}},{passive:true});
+track.addEventListener('touchstart',function(e){tx=e.touches[0].clientX;},{passive:true});
+track.addEventListener('touchend',function(e){var dx=e.changedTouches[0].clientX-tx;if(Math.abs(dx)>40){goTo(dx<0?cur+1:cur-1);reset();}},{passive:true});
 // pause on hover
-document.getElementById('carousel').addEventListener('mouseenter',()=>clearInterval(timer));
+document.getElementById('carousel').addEventListener('mouseenter',function(){clearInterval(timer);});
 document.getElementById('carousel').addEventListener('mouseleave',reset);
 
 // FORM — Formspree submission
@@ -532,6 +580,3 @@ document.getElementById('contactForm').addEventListener('submit',function(e){
   e.preventDefault();
 });
 </script>
-
-</body>
-</html>
