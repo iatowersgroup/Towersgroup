@@ -252,7 +252,7 @@ footer{background:#070F1C;padding:3rem 5% 2rem;border-top:1px solid rgba(212,165
   .stats-row{flex-direction:column;gap:.8rem}
   .stat-item{max-width:100%;transform:none!important}
   .footer-inner{grid-template-columns:1fr}
-  .hero-content{padding:0 5%}
+  .hero{height:70vh;min-height:480px}  .hero-content{padding:0 5%}
   .carousel-slide{flex:0 0 100%}
   .carousel-slide img{height:220px}
   .mv-card{padding:2rem 1.5rem}
@@ -505,7 +505,7 @@ footer{background:#070F1C;padding:3rem 5% 2rem;border-top:1px solid rgba(212,165
     </div>
     <div class="featured-wrap">
       <div class="featured-media" id="featuredMedia">
-        <video id="featVid" autoplay muted loop playsinline style="display:none;width:100%;max-height:440px;object-fit:cover">
+        <video id="featVid" autoplay muted loop playsinline style="width:100%;max-height:440px;object-fit:cover">
           <source src="proyecto.mp4" type="video/mp4">
         </video>
         <img id="featImg" src="proyecto.jpg" alt="Featured project" style="display:none;width:100%;max-height:440px;object-fit:cover">
@@ -665,16 +665,10 @@ document.querySelectorAll('.nav-links a').forEach(a=>a.addEventListener('click',
   var vid=document.getElementById('featVid');
   var img=document.getElementById('featImg');
   var fallback=document.getElementById('featFallback');
-  // Try video
-  var testVid=document.createElement('video');
-  testVid.src='proyecto.mp4';
-  testVid.oncanplay=function(){vid.style.display='block';fallback.style.display='none';};
-  testVid.onerror=function(){
-    // Try image
-    var testImg=new Image();
-    testImg.src='proyecto.jpg';
-    testImg.onload=function(){img.style.display='block';fallback.style.display='none';};
-  };
+  // Show video by default, fall back to image on error
+  fallback.style.display='none';
+  vid.onerror=function(){vid.style.display='none';img.style.display='block';};
+  if(!vid.canPlayType('video/mp4')){vid.style.display='none';img.style.display='block';}
 })();
 
 // CAROUSEL — multi-slide, infinite loop
