@@ -1,0 +1,733 @@
+<title>Towers Group</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,600;0,700;0,800;1,700&family=Barlow:wght@400;500;600;700&display=swap">
+
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#0B1D35;
+  --navy2:#0F2240;
+  --navy3:#132848;
+  --amber:#F1E5B2;
+  --amber2:#E8D99A;
+  --white:#FFFFFF;
+  --muted:rgba(255,255,255,0.72);
+  --muted2:rgba(255,255,255,0.55);
+  --card:#FFFFFF;
+  --card-text:#1A1A2E;
+  --card-muted:#4A4A6A;
+  --radius:14px;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Barlow',sans-serif;background:var(--navy);color:#fff;line-height:1.6}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:var(--navy);padding:0 5%;display:flex;align-items:center;height:72px;gap:2rem;box-shadow:0 2px 16px rgba(0,0,0,.3)}
+.nav-brand{display:flex;align-items:center;gap:10px;text-decoration:none;flex-shrink:0}
+.nav-logo{height:62px;width:auto;display:block}
+.nav-brand-text{display:flex;flex-direction:column;justify-content:center;line-height:1.1;gap:1px}
+.nav-brand-main{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1.2rem;color:#fff;letter-spacing:.04em;text-transform:uppercase}
+.nav-brand-sub{font-family:'Barlow Condensed',sans-serif;font-weight:500;font-size:.68rem;color:var(--amber);letter-spacing:.2em;text-transform:uppercase}
+.nav-links{display:flex;align-items:center;gap:2rem;margin-left:auto}
+.nav-links a{color:rgba(255,255,255,0.85);text-decoration:none;font-size:.88rem;font-weight:500;transition:color .2s}
+.nav-links a:hover{color:#fff}
+.btn-contact{padding:.42rem 1.1rem;border:1.5px solid var(--amber);color:var(--amber);border-radius:20px;font-size:.85rem;font-weight:600;text-decoration:none;transition:all .2s}
+.btn-contact:hover{background:var(--amber);color:var(--navy)}
+.nav-toggle{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none}
+.nav-toggle span{width:22px;height:2px;background:#fff;border-radius:2px;transition:all .3s;display:block}
+
+/* ── HERO ── */
+.hero{position:relative;height:100vh;min-height:560px;display:flex;align-items:center;overflow:hidden;padding-top:72px}
+.hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(105deg,rgba(11,29,53,0.92) 45%,rgba(11,29,53,0.4))}
+.hero-content{position:relative;z-index:2;padding:0 8%;max-width:720px}
+.hero-eyebrow{font-family:'Barlow Condensed',sans-serif;font-size:.78rem;font-weight:700;color:var(--amber);letter-spacing:.22em;text-transform:uppercase;margin-bottom:1.1rem;display:flex;align-items:center;gap:.7rem}
+.hero-eyebrow::before{content:'';display:block;width:32px;height:2px;background:var(--amber)}
+.hero-content h1{font-family:'Barlow Condensed',sans-serif;font-size:clamp(3rem,6.5vw,5.2rem);font-weight:800;line-height:.98;margin-bottom:1.4rem;letter-spacing:-.01em}
+.hero-content h1 .amber{color:var(--amber);display:block}
+.hero-content p{font-size:1.05rem;color:rgba(255,255,255,0.88);max-width:500px;line-height:1.7;margin-bottom:2rem}
+.hero-content p strong{color:#fff;font-weight:700}
+.hero-cta{display:flex;gap:1rem;flex-wrap:wrap}
+.btn-primary{display:inline-flex;align-items:center;gap:.5rem;padding:.75rem 1.8rem;background:var(--amber);color:var(--navy);border-radius:24px;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.95rem;letter-spacing:.06em;text-decoration:none;transition:all .2s}
+.btn-primary:hover{background:var(--amber2);transform:translateY(-1px)}
+.btn-ghost{display:inline-flex;align-items:center;gap:.5rem;padding:.75rem 1.8rem;border:1.5px solid rgba(255,255,255,.4);color:#fff;border-radius:24px;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.95rem;letter-spacing:.06em;text-decoration:none;transition:all .2s}
+.btn-ghost:hover{border-color:#fff;background:rgba(255,255,255,.08)}
+
+/* ── ABOUT ── */
+.about{position:relative;background:var(--navy2);padding:5.5rem 5%;overflow:hidden}
+
+.about .container{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
+.about-badge{font-family:'Barlow Condensed',sans-serif;font-size:.78rem;font-weight:700;color:var(--amber);letter-spacing:.2em;text-transform:uppercase;margin-bottom:.8rem;display:flex;align-items:center;gap:.6rem}
+.about-badge::before{content:'';display:block;width:28px;height:2px;background:var(--amber)}
+.about h2{font-family:'Barlow Condensed',sans-serif;font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:700;line-height:1.15;margin-bottom:1.4rem;color:#fff}
+.about-desc{color:var(--muted);font-size:.95rem;line-height:1.75;margin-bottom:1rem}
+.about-desc strong{color:#fff;font-weight:600}
+.about-pillars{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1.8rem}
+.about-pillar{display:flex;align-items:flex-start;gap:.7rem}
+.about-pillar-dot{width:8px;height:8px;border-radius:50%;background:var(--amber);flex-shrink:0;margin-top:.4rem}
+.about-pillar p{font-size:.85rem;color:var(--muted);line-height:1.5}
+.about-pillar p strong{color:#fff;display:block;font-size:.88rem;margin-bottom:.1rem}
+.about-img-wrap{position:relative}
+.about-img-wrap img{width:100%;border-radius:var(--radius);object-fit:cover;max-height:420px;display:block}
+.about-img-wrap::after{content:'';position:absolute;bottom:-16px;right:-16px;width:60%;height:60%;border:2px solid var(--amber);border-radius:var(--radius);z-index:-1;opacity:.4}
+.about-stat-row{display:flex;gap:2rem;margin-top:1.6rem;padding-top:1.6rem;border-top:1px solid rgba(255,255,255,.1)}
+.about-stat strong{font-family:'Barlow Condensed',sans-serif;font-size:1.9rem;font-weight:800;color:var(--amber);display:block;line-height:1}
+.about-stat span{font-size:.8rem;color:var(--muted);font-weight:500}
+
+/* ── MISSION / VISION ── */
+.mission-vision{position:relative;background:var(--navy);padding:5.5rem 5%;overflow:hidden}
+.mv-bg{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.mv-bg::before{content:'';position:absolute;inset:0;
+  background: repeating-linear-gradient(60deg, transparent, transparent 48px, rgba(212,165,32,.03) 48px, rgba(212,165,32,.03) 49px),
+              repeating-linear-gradient(-60deg, transparent, transparent 48px, rgba(212,165,32,.03) 48px, rgba(212,165,32,.03) 49px)}
+.mv-bg::after{content:'';position:absolute;left:50%;top:0;bottom:0;width:1px;background:linear-gradient(to bottom, transparent, rgba(212,165,32,.25) 30%, rgba(212,165,32,.25) 70%, transparent)}
+.mv-container{max-width:1100px;margin:0 auto;position:relative;z-index:1}
+.mv-header{text-align:center;margin-bottom:3.5rem}
+.mv-header .section-label{display:inline-block;margin-bottom:.6rem}
+.mv-header h2{font-family:'Barlow Condensed',sans-serif;font-size:clamp(2rem,4vw,3rem);font-weight:700;color:#fff}
+.mv-grid{display:grid;grid-template-columns:1fr 1fr;gap:0}
+.mv-card{padding:2.5rem 3rem;position:relative}
+.mv-card:first-child{border-right:1px solid rgba(255,255,255,.1)}
+.mv-card-label{font-family:'Barlow Condensed',sans-serif;font-size:.8rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--amber);margin-bottom:.8rem;display:flex;align-items:center;gap:.6rem}
+.mv-card-label::before{content:'';display:block;width:28px;height:2px;background:var(--amber)}
+.mv-card h3{font-family:'Barlow Condensed',sans-serif;font-size:clamp(1.5rem,2.5vw,2rem);font-weight:700;color:#fff;margin-bottom:1.2rem;line-height:1.15}
+.mv-card p{color:var(--muted);font-size:.92rem;line-height:1.75;margin-bottom:.9rem}
+.mv-card p:last-child{margin-bottom:0}
+.mv-card strong{color:#fff;font-weight:600}
+
+/* ── VALUES ── */
+.values-section{background:var(--navy2);padding:5rem 5%}
+.values-section .container{max-width:1100px;margin:0 auto}
+.values-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;margin-top:3rem}
+.value-card{text-align:center;padding:1.8rem 1.2rem;border-radius:var(--radius);background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);transition:all .3s}
+.value-card:hover{background:rgba(212,165,32,.08);border-color:rgba(212,165,32,.25);transform:translateY(-3px)}
+.value-icon{width:62px;height:62px;background:var(--amber);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 1.2rem}
+.value-icon svg{width:28px;height:28px;fill:none;stroke:#fff;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.value-card h3{font-family:'Barlow Condensed',sans-serif;font-size:1.1rem;font-weight:700;color:var(--amber);margin-bottom:.5rem;letter-spacing:.02em}
+.value-card p{font-size:.87rem;color:var(--muted);line-height:1.6}
+
+/* ── SERVICES ── */
+.services{background:var(--navy);padding:5.5rem 5%;position:relative}
+.services::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,var(--amber),transparent)}
+.services .container{max-width:1100px;margin:0 auto}
+.section-label{font-family:'Barlow Condensed',sans-serif;font-size:.78rem;font-weight:700;color:var(--amber);letter-spacing:.2em;text-transform:uppercase;margin-bottom:.5rem;display:flex;align-items:center;gap:.6rem}
+.section-label::before{content:'';display:block;width:24px;height:2px;background:var(--amber)}
+.section-title{font-family:'Barlow Condensed',sans-serif;font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:700;color:#fff;margin-bottom:.6rem}
+.section-sub{color:var(--muted);font-size:.93rem;max-width:580px;line-height:1.65;margin-bottom:2.5rem}
+.services-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.4rem}
+.service-card{background:var(--card);border-radius:var(--radius);overflow:hidden;box-shadow:0 4px 28px rgba(0,0,0,.2);border-top:3px solid var(--amber);transition:transform .3s,box-shadow .3s}
+.service-card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,.28)}
+.service-card-img{width:100%;height:240px;object-fit:cover;display:block}
+.service-card-body{padding:1.3rem 1.4rem}
+.service-card h3{font-family:'Barlow Condensed',sans-serif;font-size:1.28rem;font-weight:700;color:var(--navy);margin-bottom:.5rem;line-height:1.2}
+.service-card p{color:var(--card-muted);font-size:.85rem;margin-bottom:.8rem;line-height:1.55}
+.service-card ul{list-style:none;padding:0;color:var(--card-muted);font-size:.83rem}
+.service-card ul li{margin-bottom:.3rem;line-height:1.45;padding-left:1rem;position:relative}
+.service-card ul li::before{content:'→';position:absolute;left:0;color:var(--amber);font-size:.75rem;top:.05em}
+
+/* ── WHY US ── */
+.why-us{background:var(--navy2);padding:5.5rem 5%;position:relative;overflow:hidden}
+.why-us::before{content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse at 80% 50%, rgba(212,165,32,.06) 0%, transparent 60%)}
+.why-us .container{max-width:1100px;margin:0 auto}
+.why-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.6rem;margin-top:3rem}
+.why-card{border:1px solid rgba(212,165,32,.2);border-radius:var(--radius);padding:1.8rem 2rem;background:rgba(255,255,255,.03);position:relative;overflow:hidden;transition:all .3s}
+.why-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--amber),transparent)}
+.why-card:hover{background:rgba(212,165,32,.06);border-color:rgba(212,165,32,.4)}
+.why-num{font-family:'Barlow Condensed',sans-serif;font-size:3.5rem;font-weight:800;color:rgba(212,165,32,.12);line-height:1;position:absolute;top:.6rem;right:1.2rem;letter-spacing:-.02em}
+.why-icon{width:48px;height:48px;background:rgba(212,165,32,.12);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:1rem}
+.why-icon svg{width:24px;height:24px;fill:none;stroke:var(--amber);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.why-card h3{font-family:'Barlow Condensed',sans-serif;font-size:1.2rem;font-weight:700;color:#fff;margin-bottom:.5rem}
+.why-card p{color:var(--muted);font-size:.87rem;line-height:1.6}
+
+/* ── STATS + FEATURED ── */
+.stats-section{background:var(--navy);padding:4.5rem 5%;position:relative}
+.stats-section::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,var(--amber),transparent)}
+.stats-section .container{max-width:1100px;margin:0 auto}
+.stats-row{display:flex;align-items:stretch;justify-content:center;gap:1.2rem;margin-bottom:3rem}
+.stat-item{text-align:center;padding:2rem 1.8rem;flex:1;max-width:320px;background:rgba(255,255,255,.04);border:1px solid rgba(241,229,178,.14);border-radius:var(--radius);position:relative;overflow:hidden;transition:background .3s,transform .3s}
+.stat-item::after{content:'';position:absolute;bottom:0;left:10%;right:10%;height:2px;background:linear-gradient(90deg,transparent,var(--amber),transparent);opacity:.5}
+.stat-item:hover{background:rgba(241,229,178,.07);transform:translateY(-4px)}
+.stat-num{font-family:'Barlow Condensed',sans-serif;font-size:2.6rem;font-weight:800;color:var(--amber);line-height:1}
+.stat-label{font-size:.82rem;font-weight:700;color:#fff;margin-top:.4rem;letter-spacing:.06em;font-family:'Barlow Condensed',sans-serif;text-transform:uppercase}
+.stat-desc{font-size:.78rem;color:var(--muted);margin-top:.5rem;line-height:1.45;border-top:1px solid rgba(255,255,255,.08);padding-top:.5rem}
+.featured-wrap{border-radius:var(--radius);overflow:hidden;max-width:820px;margin:0 auto 2.5rem;position:relative;box-shadow:0 8px 40px rgba(0,0,0,.35)}
+.featured-media{width:100%;display:block}
+.featured-media img,.featured-media video{width:100%;max-height:440px;object-fit:cover;display:block}
+.btn-outline{display:block;width:fit-content;margin:0 auto;padding:.7rem 2.2rem;border:2px solid var(--amber);color:var(--amber);border-radius:24px;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:1rem;letter-spacing:.06em;text-decoration:none;cursor:pointer;background:transparent;transition:all .2s}
+.btn-outline:hover{background:var(--amber);color:var(--navy)}
+
+/* ── COVERAGE ── */
+.coverage{background:var(--navy2);padding:5.5rem 5%;position:relative;overflow:hidden}
+.coverage::after{content:'';position:absolute;top:0;right:0;width:40%;height:100%;background:linear-gradient(to left,rgba(212,165,32,.03),transparent);pointer-events:none}
+.coverage .container{max-width:1100px;margin:0 auto;position:relative;z-index:1}
+.coverage-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.coverage-text h2{font-family:'Barlow Condensed',sans-serif;font-size:clamp(1.6rem,3vw,2.2rem);font-weight:700;line-height:1.2;margin-bottom:1.4rem;color:#fff}
+.coverage-text p{color:var(--muted);font-size:.91rem;line-height:1.75;margin-bottom:1rem}
+.coverage-text strong{color:#fff;font-weight:600}
+.coverage-offices{display:flex;gap:2rem;margin-top:1.8rem;flex-wrap:wrap}
+.cov-office{flex:1;min-width:160px}
+.cov-office-label{font-family:'Barlow Condensed',sans-serif;font-size:.78rem;font-weight:700;color:var(--amber);letter-spacing:.16em;text-transform:uppercase;margin-bottom:.4rem}
+.cov-office p{font-size:.83rem;color:var(--muted);line-height:1.5}
+.coverage-photo img{width:100%;border-radius:var(--radius);display:block;max-height:380px;object-fit:cover;box-shadow:0 8px 32px rgba(0,0,0,.3)}
+
+/* ── EXPERIENCE ── */
+.experience{background:var(--navy);padding:4.5rem 0;position:relative}
+.experience::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,var(--amber),transparent)}
+.experience .exp-header{text-align:center;padding:0 5%;margin-bottom:2rem}
+.experience h2{font-family:'Barlow Condensed',sans-serif;font-size:clamp(1.8rem,3.5vw,2.5rem);font-weight:700;color:#fff;font-style:italic}
+.carousel-wrap{position:relative;overflow:hidden;width:100%;padding:0 4rem}
+.carousel-track{display:flex;gap:1rem;transition:transform .5s cubic-bezier(.4,0,.2,1)}
+.carousel-slide{flex:0 0 calc(33.333% - 0.667rem);position:relative;border-radius:10px;overflow:hidden;background:#0B2035}
+.cs1{background:linear-gradient(135deg,#0B2035 0%,#1A3A5C 100%)}
+.cs2{background:linear-gradient(135deg,#0F2840 0%,#1E3D64 100%)}
+.cs3{background:linear-gradient(135deg,#0A1D30 0%,#163355 100%)}
+.cs4{background:linear-gradient(135deg,#102540 0%,#1B3660 100%)}
+.cs5{background:linear-gradient(135deg,#0D2238 0%,#17305A 100%)}
+.cs6{background:linear-gradient(135deg,#0B1E32 0%,#152C50 100%)}
+.cs7{background:linear-gradient(135deg,#112745 0%,#1C3B65 100%)}
+.cs8{background:linear-gradient(135deg,#0E2238 0%,#183460 100%)}
+.carousel-slide img{width:100%;height:240px;object-fit:cover;display:block;transition:transform .4s ease}
+.carousel-slide:hover img{transform:scale(1.04)}
+.carousel-controls{position:absolute;top:50%;left:0;right:0;transform:translateY(-50%);display:flex;justify-content:space-between;padding:0 .5rem;pointer-events:none}
+.carousel-btn{pointer-events:all;background:rgba(11,29,53,.65);border:1.5px solid rgba(255,255,255,.3);color:#fff;width:42px;height:42px;border-radius:50%;font-size:1.1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s}
+.carousel-btn:hover{background:var(--amber);border-color:var(--amber);color:var(--navy)}
+.carousel-dots{display:flex;justify-content:center;gap:.5rem;margin-top:1.2rem;padding-bottom:.5rem}
+.carousel-dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.28);border:none;cursor:pointer;padding:0;transition:all .25s}
+.carousel-dot.active{background:var(--amber);width:22px;border-radius:4px}
+
+/* ── CONTACT ── */
+.contact{background:var(--navy2);padding:5.5rem 5%;position:relative}
+.contact::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,var(--amber),transparent)}
+.contact .container{max-width:1100px;margin:0 auto}
+.contact-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:4rem;align-items:start}
+.contact-text h2{font-family:'Barlow Condensed',sans-serif;font-size:clamp(1.6rem,3vw,2.3rem);font-weight:700;line-height:1.2;margin-bottom:1rem;color:#fff}
+.contact-text>p{color:var(--muted);font-size:.9rem;line-height:1.7;margin-bottom:1.8rem}
+.contact-offices{display:flex;flex-direction:column;gap:1.5rem}
+.office-block{border-left:2px solid var(--amber);padding-left:1rem}
+.office-label{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.88rem;color:var(--amber);letter-spacing:.07em;text-transform:uppercase;display:block;margin-bottom:.4rem}
+.office-addr{color:#fff;font-size:.87rem;line-height:1.5;margin-bottom:.5rem}
+.office-block a{display:block;color:var(--muted);font-size:.82rem;text-decoration:none;line-height:1.8;transition:color .2s}
+.office-block a:hover{color:var(--amber)}
+.contact-form-card{background:#fff;border-radius:var(--radius);padding:2.2rem 2rem;box-shadow:0 8px 40px rgba(0,0,0,.25)}
+.form-group{margin-bottom:1.1rem}
+.form-group label{display:block;font-size:.82rem;font-weight:600;color:#333;margin-bottom:.3rem}
+.form-group input,.form-group select,.form-group textarea{width:100%;padding:.62rem .85rem;border:1.5px solid #ddd;border-radius:8px;font-family:'Barlow',sans-serif;font-size:.88rem;color:#222;background:#fff;outline:none;transition:border-color .2s}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--amber)}
+.form-group textarea{height:95px;resize:vertical}
+.btn-submit{width:100%;padding:.75rem;background:var(--amber);color:var(--navy);border:none;border-radius:8px;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:1rem;letter-spacing:.04em;cursor:pointer;margin-top:.4rem;transition:background .2s}
+.btn-submit:hover{background:var(--amber2)}
+
+/* ── FOOTER ── */
+footer{background:#070F1C;padding:3rem 5% 2rem;border-top:1px solid rgba(212,165,32,.2)}
+.footer-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:2.5rem;margin-bottom:2rem}
+.footer-logo{height:75px;width:auto;margin-bottom:.8rem;display:block}
+.footer-desc{font-size:.82rem;color:var(--muted2);line-height:1.6;max-width:240px}
+.footer-col h4{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.92rem;color:#fff;letter-spacing:.08em;margin-bottom:.9rem;text-transform:uppercase}
+.footer-col a,.footer-col p{display:block;font-size:.82rem;color:var(--muted2);text-decoration:none;margin-bottom:.45rem;line-height:1.5;transition:color .2s}
+.footer-col a:hover{color:var(--amber)}
+.footer-bottom{max-width:1100px;margin:0 auto;border-top:1px solid rgba(255,255,255,.08);padding-top:1.2rem;display:flex;justify-content:space-between;align-items:center}
+.footer-bottom p{font-size:.77rem;color:var(--muted2)}
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+  .values-grid{grid-template-columns:repeat(2,1fr)}
+  .services-grid{grid-template-columns:1fr}
+  .coverage-grid{grid-template-columns:1fr}
+  .about .container{grid-template-columns:1fr}
+  .mv-grid{grid-template-columns:1fr}
+  .mv-card:first-child{border-right:none;border-bottom:1px solid rgba(255,255,255,.1)}
+  .contact-grid{grid-template-columns:1fr}
+  .footer-inner{grid-template-columns:1fr 1fr}
+  .why-grid{grid-template-columns:1fr}
+  .stat-item{padding:0 1.5rem}
+  .carousel-slide{flex:0 0 calc(50% - 0.5rem)}
+  .carousel-slide img{height:200px}
+}
+@media(max-width:640px){
+  .nav-links{display:none;flex-direction:column;position:absolute;top:72px;left:0;right:0;background:var(--navy2);padding:1.5rem 5%;gap:1rem;box-shadow:0 8px 20px rgba(0,0,0,.3)}
+  .nav-links.open{display:flex}
+  .nav-toggle{display:flex}
+  .values-grid{grid-template-columns:1fr 1fr}
+  .stats-row{flex-direction:column;gap:.8rem}
+  .stat-item{max-width:100%;transform:none!important}
+  .footer-inner{grid-template-columns:1fr}
+  .hero{height:85vh;min-height:520px}  .hero-content{padding:0 5%}
+  .carousel-slide{flex:0 0 100%}
+  .carousel-slide img{height:220px}
+  .mv-card{padding:2rem 1.5rem}
+  .coverage-offices{flex-direction:column;gap:1rem}
+  .about-pillars{grid-template-columns:1fr}
+  .about-img-wrap::after{display:none}
+}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--card:#162840;--card-text:#E0EAF5;--card-muted:#8BAAC8}}
+</style>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="#home" class="nav-brand">
+    <img src="logo.png" alt="Towers Group" class="nav-logo">
+    <div class="nav-brand-text">
+      <span class="nav-brand-main">Towers Group</span>
+      <span class="nav-brand-sub">Business Synergy</span>
+    </div>
+  </a>
+  <div class="nav-links" id="navLinks">
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#coverage">Coverage</a>
+    <a href="#contact" class="btn-contact">Contact us</a>
+  </div>
+  <button class="nav-toggle" id="navToggle" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- HERO -->
+<section id="home" class="hero">
+  <img src="hero.jpg" alt="Towers Group electrical engineering" class="hero-img">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Electrical Engineering Excellence</div>
+    <h1>Powering<span class="amber">what matters</span></h1>
+    <p>We design, build, and optimize high and medium voltage electrical systems for the energy sector — from substations to full-scale industrial infrastructure, with operations in <strong>Colombia and the United States.</strong></p>
+    <div class="hero-cta">
+      <a href="#services" class="btn-primary">Our Services</a>
+      <a href="#contact" class="btn-ghost">Contact Us</a>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="about">
+  <div class="container">
+    <div>
+      <div class="about-badge">About Towers Group</div>
+      <h2>Comprehensive electrical solutions, built on proven expertise</h2>
+      <p class="about-desc">At <strong>Towers Group</strong>, we develop comprehensive electrical solutions for the energy sector, drawing on deep experience in electrical infrastructure, substations, transmission systems, and industrial, commercial, and residential projects.</p>
+      <p class="about-desc">We accompany every project from <strong>conceptual engineering to final commissioning</strong>, guaranteeing efficiency, safety, and full compliance with regulatory standards. Our expertise enables us to deliver reliable, customized solutions aligned with the highest quality standards in the electricity sector.</p>
+      <p class="about-desc">We act as a <strong>strategic partner</strong> — ensuring that every electrical connection translates into progress, sustainability, and trust for our clients and communities.</p>
+      <div class="about-pillars">
+        <div class="about-pillar"><div class="about-pillar-dot"></div><p><strong>Concept to Commissioning</strong>Full lifecycle support on every project</p></div>
+        <div class="about-pillar"><div class="about-pillar-dot"></div><p><strong>Regulatory Compliance</strong>Aligned with sector standards and norms</p></div>
+        <div class="about-pillar"><div class="about-pillar-dot"></div><p><strong>Binational Operations</strong>Colombia &amp; United States</p></div>
+        <div class="about-pillar"><div class="about-pillar-dot"></div><p><strong>Technical Specialization</strong>High &amp; medium voltage focus</p></div>
+      </div>
+
+    </div>
+    <div class="about-img-wrap">
+      <img src="hv.jpg" alt="Towers Group electrical infrastructure">
+    </div>
+  </div>
+</section>
+
+<!-- MISSION + VISION -->
+<section id="mission" class="mission-vision">
+  <div class="mv-bg"></div>
+  <div class="mv-container">
+    <div class="mv-header">
+      <div class="section-label">Our Purpose</div>
+      <h2>Mission &amp; Vision</h2>
+    </div>
+    <div class="mv-grid">
+      <div class="mv-card">
+        <div class="mv-card-label">Mission</div>
+        <h3>Elevating energy to a new standard</h3>
+        <p>Our mission is to elevate energy to a new standard of <strong>efficiency, safety, and reliability</strong>. We design, build, and optimize electrical systems that propel the industrial, commercial, and residential advancement of our clients — delivering tailored solutions grounded in engineering, technology, and expertise.</p>
+        <p>We are dedicated to each of our projects, offering <strong>specialized technical guidance</strong>, continuous innovation, and execution that adheres to the highest standards of quality and regulatory compliance.</p>
+        <p>We serve as a strategic partner, ensuring that every electrical connection fosters progress, sustainability, and trust.</p>
+      </div>
+      <div class="mv-card">
+        <div class="mv-card-label">Vision</div>
+        <h3>Leading sustainable energy development</h3>
+        <p>At Towers Group, we envision a future where energy serves as a driving force for <strong>sustainable and technological development</strong> across the markets we engage with.</p>
+        <p>Our vision is to establish ourselves as a premier <strong>international electrical engineering firm</strong> — distinguished by professional excellence, commitment to electrical safety, and innovative solutions that create genuine value for our clients and communities.</p>
+        <p>To be an industry benchmark for our capacity to integrate knowledge, experience, and environmental responsibility, contributing to a more efficient, reliable, and sustainable energy transition.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VALUES -->
+<section class="values-section" id="values">
+  <div class="container">
+    <div class="section-label">What drives us</div>
+    <div class="section-title">Our Core Values</div>
+    <div class="values-grid">
+      <div class="value-card">
+        <div class="value-icon"><svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
+        <h3>Efficiency</h3>
+        <p>Optimized engineering processes and streamlined execution that deliver maximum performance at every stage of the project.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <h3>Safety</h3>
+        <p>Every project is designed and executed in strict adherence to electrical safety standards and current regulatory requirements.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></div>
+        <h3>Reliability</h3>
+        <p>Proven technical expertise and an unwavering commitment to delivering on every promise — on time, on spec, every time.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></div>
+        <h3>International Reach</h3>
+        <p>Headquartered in Barranquilla with an active presence in Miami — a truly binational engineering firm built for global projects.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services" class="services">
+  <div class="container">
+    <div class="section-label">What we do</div>
+    <div class="section-title">Engineering Solutions</div>
+    <p class="section-sub">From high-voltage substations to low-voltage installations, we cover the full spectrum of electrical engineering needs with specialized expertise at every level.</p>
+    <div class="services-grid">
+      <div class="service-card">
+        <img src="hv.jpg" alt="High Voltage" class="service-card-img">
+        <div class="service-card-body">
+          <h3>High &amp; Medium Voltage Systems</h3>
+          <p>Design and engineering of electrical infrastructure for the energy sector — from transmission lines to substations and industrial connection systems.</p>
+          <ul>
+            <li>Design of electrical connection systems for new industrial facilities</li>
+            <li>Basic and detailed engineering of electrical lines and substations</li>
+            <li>Formulation and structuring of electrical projects</li>
+            <li>Loadability analyses, power flow &amp; short-circuit evaluations</li>
+            <li>Protection coordination and adjustment studies (EACP)</li>
+            <li>Consulting in regulatory compliance, load capacity &amp; system reliability</li>
+          </ul>
+        </div>
+      </div>
+      <div class="service-card">
+        <img src="lv.jpg" alt="Low Voltage" class="service-card-img">
+        <div class="service-card-body">
+          <h3>Low Voltage Systems</h3>
+          <p>Complete electrical solutions for industrial, commercial, and residential applications — from design and renovation to emergency response and diagnostics.</p>
+          <ul>
+            <li>Electrical designs for industrial, commercial &amp; residential applications</li>
+            <li>Electrical enhancements and renovations in structures, educational facilities &amp; industrial plants</li>
+            <li>Emergency services: transformer replacement, component repair &amp; reconnections</li>
+            <li>Modernization of switchboards, grounding systems, conduits &amp; lighting</li>
+            <li>Technical inspections and comprehensive electrical diagnostics</li>
+          </ul>
+        </div>
+      </div>
+      <div class="service-card">
+        <img src="consulting.jpg" alt="Consulting" class="service-card-img">
+        <div class="service-card-body">
+          <h3>Consulting &amp; Project Development</h3>
+          <p>Expert guidance on energy project development, regulatory compliance, and technical feasibility — from concept to final approval with operators and regulatory bodies.</p>
+          <ul>
+            <li>Comprehensive energy project formulation and development</li>
+            <li>Energy efficiency consulting and regulatory compliance guidance</li>
+            <li>User connection procedures and technical evaluations</li>
+            <li>Design and expansion feasibility assessments</li>
+            <li>Permit management, technical documentation preparation</li>
+            <li>Procedures and filings with operators and regulatory entities</li>
+          </ul>
+        </div>
+      </div>
+      <div class="service-card">
+        <img src="supplies.jpg" alt="Supplies" class="service-card-img">
+        <div class="service-card-body">
+          <h3>Electrical Supplies &amp; Technical Assistance</h3>
+          <p>Integrated electrical supply management and hands-on technical support — from material procurement through assembly, testing, and commissioning.</p>
+          <ul>
+            <li>Provision and management of domestic and imported electrical materials</li>
+            <li>Full compliance with project specifications, technical standards &amp; quality requirements</li>
+            <li>Direct coordination with electric utilities and international partners</li>
+            <li>Dependable supplies customized to each project's specific needs</li>
+            <li>Technical support throughout assembly, testing &amp; commissioning phases</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY TOWERS GROUP -->
+<section class="why-us">
+  <div class="container">
+    <div class="section-label">Why Towers Group</div>
+    <div class="section-title">What sets us apart</div>
+    <p class="section-sub" style="color:var(--muted)">We combine the technical depth of a specialized engineering firm with the agility of a dedicated partner — committed to your project from the first drawing to the final energization.</p>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-num">01</div>
+        <div class="why-icon"><svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4"/><path d="M21 12c0 4.97-4.03 9-9 9S3 16.97 3 12 7.03 3 12 3s9 4.03 9 9z"/></svg></div>
+        <h3>Full Project Lifecycle</h3>
+        <p>From conceptual design to final commissioning, we guide every phase — engineering, procurement, construction, and regulatory approvals — under one roof.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-num">02</div>
+        <div class="why-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></div>
+        <h3>Binational Presence</h3>
+        <p>With offices in Barranquilla, Colombia and Miami, Florida, we operate seamlessly across borders — giving our clients access to both markets and international supply chains.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-num">03</div>
+        <div class="why-icon"><svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
+        <h3>Sector Specialization</h3>
+        <p>We focus exclusively on the electrical energy sector. That depth of focus means faster identification of risks, more accurate engineering, and better outcomes for every client.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-num">04</div>
+        <div class="why-icon"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg></div>
+        <h3>Regulatory Expertise</h3>
+        <p>We know the regulatory landscape inside and out — managing permits, technical documentation, and coordination with network operators and regulatory entities so you don't have to.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS + FEATURED -->
+<section class="stats-section">
+  <div class="container">
+    <div class="stats-row">
+      <div class="stat-item">
+        <div class="stat-num">Est. 2022</div>
+        <div class="stat-label">Founded</div>
+        <div class="stat-desc">Building the future of electrical engineering since day one</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">150+ MVA</div>
+        <div class="stat-label">Capacity Delivered</div>
+        <div class="stat-desc">Served across transmission lines, substations &amp; generation projects</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">2</div>
+        <div class="stat-label">Countries</div>
+        <div class="stat-desc">Colombia &amp; United States — fully binational operations</div>
+      </div>
+    </div>
+    <div class="featured-wrap">
+      <div class="featured-media" id="featuredMedia">
+        <video id="featVid" autoplay muted loop playsinline style="display:none;width:100%;max-height:440px;object-fit:cover">
+          <source src="proyecto.mp4" type="video/mp4">
+        </video>
+        <img id="featImg" src="proyecto.jpg" alt="Featured project" style="display:none;width:100%;max-height:440px;object-fit:cover">
+        <img id="featFallback" src="exp-01.jpg" alt="Featured project" style="width:100%;max-height:440px;object-fit:cover">
+      </div>
+    </div>
+    <a href="#contact" class="btn-outline">Start a Project</a>
+  </div>
+</section>
+
+<!-- COVERAGE -->
+<section id="coverage" class="coverage">
+  <div class="container">
+    <div class="coverage-grid">
+      <div class="coverage-text">
+        <div class="section-label">Where we operate</div>
+        <h2>Nationwide coverage, with roots in the Caribbean and reach into the United States.</h2>
+        <p>We deliver our services throughout <strong>Colombia</strong>, with a strategic focus on the Caribbean region — where we bring our deepest local knowledge, fastest response times, and strongest network of partners.</p>
+        <p>From our <strong>headquarters in Barranquilla</strong>, we provide professional guidance and personalized attention for every project, backed by the technical capacity to handle complex electrical infrastructure at any scale.</p>
+        <p>Our <strong>Miami office</strong> extends our reach to North American clients and opens access to international supply chains and partnerships, making Towers Group a genuinely binational firm.</p>
+
+      </div>
+      <div class="coverage-photo">
+        <img src="coverage.jpg" alt="Coverage — Barranquilla, Colombia">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section class="experience">
+  <div class="exp-header">
+    <div class="section-label" style="justify-content:center">Portfolio</div>
+    <h2>Our experience</h2>
+  </div>
+  <div class="carousel-wrap" id="carousel">
+    <div class="carousel-track" id="carouselTrack">
+      <div class="carousel-slide cs1"><img src="exp-01.jpg" alt="Project 1" loading="lazy" onerror="this.style.opacity=0"></div>
+      <div class="carousel-slide cs2"><img src="exp-02.jpg" alt="Project 2" loading="lazy" onerror="this.style.opacity=0"></div>
+      <div class="carousel-slide cs3"><img src="exp-03.jpg" alt="Project 3" loading="lazy" onerror="this.style.opacity=0"></div>
+      <div class="carousel-slide cs4"><img src="exp-07.jpg" alt="Project 4" loading="lazy" onerror="this.style.opacity=0"></div>
+      <div class="carousel-slide cs5"><img src="exp-08.jpg" alt="Project 5" loading="lazy" onerror="this.style.opacity=0"></div>
+      <div class="carousel-slide cs6"><img src="exp-09.jpg" alt="Project 6" loading="lazy" onerror="this.style.opacity=0"></div>
+      <div class="carousel-slide cs7"><img src="exp-10.jpg" alt="Project 7" loading="lazy" onerror="this.style.opacity=0"></div>
+      <div class="carousel-slide cs8"><img src="exp-11.jpg" alt="Project 8" loading="lazy" onerror="this.style.opacity=0"></div>
+    </div>
+    <div class="carousel-controls">
+      <button class="carousel-btn" id="prevBtn" aria-label="Previous">&#8592;</button>
+      <button class="carousel-btn" id="nextBtn" aria-label="Next">&#8594;</button>
+    </div>
+  </div>
+  <div class="carousel-dots" id="carouselDots">
+    <button class="carousel-dot active" data-idx="0" aria-label="Slide 1"></button>
+    <button class="carousel-dot" data-idx="1" aria-label="Slide 2"></button>
+    <button class="carousel-dot" data-idx="2" aria-label="Slide 3"></button>
+    <button class="carousel-dot" data-idx="3" aria-label="Slide 4"></button>
+    <button class="carousel-dot" data-idx="4" aria-label="Slide 5"></button>
+    <button class="carousel-dot" data-idx="5" aria-label="Slide 6"></button>
+    <button class="carousel-dot" data-idx="6" aria-label="Slide 7"></button>
+    <button class="carousel-dot" data-idx="7" aria-label="Slide 8"></button>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact">
+  <div class="container">
+    <div class="contact-grid">
+      <div class="contact-text">
+        <div class="section-label">Get in touch</div>
+        <h2>Let's build something exceptional together</h2>
+        <p>Whether you have a large-scale infrastructure project or need specialized consulting, our team is ready to engineer the right solution for your exact requirements.</p>
+        <div class="contact-offices">
+          <div class="office-block">
+            <span class="office-label">🇨🇴 Colombia</span>
+            <p class="office-addr">Cra. 57 #99A-65, Riomar<br>Barranquilla, Atlántico</p>
+            <a href="tel:+573188275226">+57 318 827 5226</a>
+            <a href="tel:+573012762197">+57 301 276 2197</a>
+            <a href="mailto:soporte.tecnico@towersgroup.co">soporte.tecnico@towersgroup.co</a>
+            <a href="mailto:administracion@towersgroup.co">administracion@towersgroup.co</a>
+          </div>
+          <div class="office-block">
+            <span class="office-label">🇺🇸 United States</span>
+            <p class="office-addr">1001 NW 7th St<br>Miami, FL 33136</p>
+            <a href="tel:+13058969384">+1 (305) 896-9384</a>
+            <a href="mailto:info.tgbs@towersgroup.co">info.tgbs@towersgroup.co</a>
+          </div>
+        </div>
+      </div>
+      <div class="contact-form-card">
+        <form id="contactForm" action="https://formspree.io/f/xzepnajk" method="POST">
+          <div class="form-group"><label>Full name</label><input type="text" name="name" required></div>
+          <div class="form-group"><label>Email address</label><input type="email" name="email" required></div>
+          <div class="form-group"><label>Company</label><input type="text" name="company"></div>
+          <div class="form-group"><label>Service of Interest</label>
+            <select name="service">
+              <option value="">Select a service</option>
+              <option>High &amp; Medium Voltage Systems</option>
+              <option>Low Voltage Systems</option>
+              <option>Consulting &amp; Project Development</option>
+              <option>Electrical Supplies &amp; Technical Assistance</option>
+            </select>
+          </div>
+          <div class="form-group"><label>Message</label><textarea name="message" required></textarea></div>
+          <button type="submit" class="btn-submit" id="submitBtn">Send Message &#10140;</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <img src="logo.png" alt="Towers Group" class="footer-logo">
+      <p class="footer-desc">Specialized electrical engineering firm delivering high &amp; medium voltage solutions across Colombia and the United States.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Navigation</h4>
+      <a href="#home">Home</a>
+      <a href="#about">About Us</a>
+      <a href="#mission">Mission &amp; Vision</a>
+      <a href="#services">Services</a>
+      <a href="#coverage">Coverage</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <a href="#services">High &amp; Medium Voltage</a>
+      <a href="#services">Low Voltage Systems</a>
+      <a href="#services">Consulting &amp; Development</a>
+      <a href="#services">Electrical Supplies</a>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <p>Cra. 57 #99A-65, Riomar<br>Barranquilla, Atlántico</p>
+      <p>1001 NW 7th St, Miami, FL 33136</p>
+      <a href="tel:+573188275226">+57 318 827 5226</a>
+      <a href="tel:+13058969384">+1 (305) 896-9384</a>
+      <a href="mailto:info.tgbs@towersgroup.co">info.tgbs@towersgroup.co</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2024 Towers Group. All rights reserved.</p>
+    <p style="color:var(--amber);font-size:.77rem;font-family:'Barlow Condensed',sans-serif;font-weight:600;letter-spacing:.06em">BUSINESS SYNERGY</p>
+  </div>
+</footer>
+
+<script>
+// NAV
+const navToggle=document.getElementById('navToggle'),navLinks=document.getElementById('navLinks');
+navToggle.addEventListener('click',()=>navLinks.classList.toggle('open'));
+document.querySelectorAll('.nav-links a').forEach(a=>a.addEventListener('click',()=>navLinks.classList.remove('open')));
+
+// FEATURED MEDIA: try video → try img file → use embedded fallback
+(function(){
+  var vid=document.getElementById('featVid');
+  var img=document.getElementById('featImg');
+  var fallback=document.getElementById('featFallback');
+  // Show image immediately, replace with video if available
+  img.style.display='block';
+  fallback.style.display='none';
+  var testVid=document.createElement('video');
+  testVid.src='proyecto.mp4';
+  testVid.oncanplay=function(){vid.style.display='block';img.style.display='none';};
+})();
+
+// CAROUSEL — multi-slide, infinite loop
+const track=document.getElementById('carouselTrack');
+const dots=document.querySelectorAll('.carousel-dot');
+const TOTAL=8;
+let cur=0,timer;
+
+function perView(){
+  if(window.innerWidth<=640)return 1;
+  if(window.innerWidth<=900)return 2;
+  return 3;
+}
+function maxCur(){return TOTAL-perView();}
+
+function slideW(){
+  var s=track.children[0];
+  if(!s)return 0;
+  var gap=parseFloat(getComputedStyle(track).gap)||16;
+  return s.getBoundingClientRect().width+gap;
+}
+
+function goTo(n){
+  var mx=maxCur();
+  if(n>mx)n=0;
+  if(n<0)n=mx;
+  cur=n;
+  track.style.transform='translateX(-'+(cur*slideW())+'px)';
+  dots.forEach(function(d,i){d.classList.toggle('active',i===cur);});
+}
+
+document.getElementById('prevBtn').addEventListener('click',function(){goTo(cur-1);reset();});
+document.getElementById('nextBtn').addEventListener('click',function(){goTo(cur+1);reset();});
+dots.forEach(function(d){d.addEventListener('click',function(){goTo(+d.dataset.idx);reset();});});
+function reset(){clearInterval(timer);timer=setInterval(function(){goTo(cur+1);},5000);}
+reset();
+window.addEventListener('resize',function(){goTo(cur);});
+
+var tx=0;
+track.addEventListener('touchstart',function(e){tx=e.touches[0].clientX;},{passive:true});
+track.addEventListener('touchend',function(e){var dx=e.changedTouches[0].clientX-tx;if(Math.abs(dx)>40){goTo(dx<0?cur+1:cur-1);reset();}},{passive:true});
+document.getElementById('carousel').addEventListener('mouseenter',function(){clearInterval(timer);});
+document.getElementById('carousel').addEventListener('mouseleave',reset);
+
+// FORM — Formspree submission
+document.getElementById('contactForm').addEventListener('submit',function(e){
+  var btn=document.getElementById('submitBtn');
+  btn.textContent='Sending…';btn.disabled=true;
+  var data=new FormData(this);
+  fetch('https://formspree.io/f/xzepnajk',{method:'POST',body:data,headers:{Accept:'application/json'}})
+    .then(function(r){
+      if(r.ok){btn.textContent='Message Sent! ✓';btn.style.background='#16a34a';
+        document.getElementById('contactForm').reset();
+        setTimeout(()=>{btn.textContent='Send Message ➤';btn.style.background='';btn.disabled=false;},4200);
+      } else {btn.textContent='Error — try again';btn.disabled=false;}
+    })
+    .catch(function(){btn.textContent='Error — try again';btn.disabled=false;});
+  e.preventDefault();
+});
+</script>
