@@ -55,9 +55,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:var(--navy);paddi
 
 /* ── ABOUT ── */
 .about{position:relative;background:var(--navy2);padding:5.5rem 5%;overflow:hidden}
-.about::before{content:'';position:absolute;right:-6%;top:50%;transform:translateY(-50%);width:min(500px,55vw);height:min(500px,55vw);
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 220 340'%3E%3Cg stroke='%23F1E5B2' stroke-width='1.5' fill='none' opacity='.18'%3E%3Cline x1='110' y1='8' x2='110' y2='48'/%3E%3Cpolygon points='110,48 75,90 145,90'/%3E%3Cline x1='75' y1='90' x2='40' y2='200'/%3E%3Cline x1='145' y1='90' x2='180' y2='200'/%3E%3Cline x1='60' y1='130' x2='160' y2='130'/%3E%3Cline x1='50' y1='165' x2='170' y2='165'/%3E%3Cline x1='40' y1='200' x2='20' y2='330'/%3E%3Cline x1='180' y1='200' x2='200' y2='330'/%3E%3Cline x1='30' y1='240' x2='190' y2='240'/%3E%3Cline x1='25' y1='285' x2='195' y2='285'/%3E%3Cpath d='M20 330 Q110 310 200 330' stroke-dasharray='4,4'/%3E%3Ccircle cx='110' cy='8' r='4'/%3E%3Ccircle cx='110' cy='48' r='3'/%3E%3C/g%3E%3C/svg%3E");
-  background-repeat:no-repeat;background-size:contain;pointer-events:none}
+
 .about .container{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
 .about-badge{font-family:'Barlow Condensed',sans-serif;font-size:.78rem;font-weight:700;color:var(--amber);letter-spacing:.2em;text-transform:uppercase;margin-bottom:.8rem;display:flex;align-items:center;gap:.6rem}
 .about-badge::before{content:'';display:block;width:28px;height:2px;background:var(--amber)}
@@ -245,7 +243,6 @@ footer{background:#070F1C;padding:3rem 5% 2rem;border-top:1px solid rgba(212,165
   .stat-item{padding:0 1.5rem}
   .carousel-slide{flex:0 0 calc(50% - 0.5rem)}
   .carousel-slide img{height:200px}
-  .about::before{display:none}
 }
 @media(max-width:640px){
   .nav-links{display:none;flex-direction:column;position:absolute;top:72px;left:0;right:0;background:var(--navy2);padding:1.5rem 5%;gap:1rem;box-shadow:0 8px 20px rgba(0,0,0,.3)}
@@ -533,16 +530,7 @@ footer{background:#070F1C;padding:3rem 5% 2rem;border-top:1px solid rgba(212,165
         <p>We deliver our services throughout <strong>Colombia</strong>, with a strategic focus on the Caribbean region — where we bring our deepest local knowledge, fastest response times, and strongest network of partners.</p>
         <p>From our <strong>headquarters in Barranquilla</strong>, we provide professional guidance and personalized attention for every project, backed by the technical capacity to handle complex electrical infrastructure at any scale.</p>
         <p>Our <strong>Miami office</strong> extends our reach to North American clients and opens access to international supply chains and partnerships, making Towers Group a genuinely binational firm.</p>
-        <div class="coverage-offices">
-          <div class="cov-office">
-            <div class="cov-office-label">🇨🇴 Colombia HQ</div>
-            <p>Cra. 57 #99A-65, Riomar<br>Barranquilla, Atlántico</p>
-          </div>
-          <div class="cov-office">
-            <div class="cov-office-label">🇺🇸 US Office</div>
-            <p>1001 NW 7th St<br>Miami, FL 33136</p>
-          </div>
-        </div>
+
       </div>
       <div class="coverage-photo">
         <img src="coverage.jpg" alt="Coverage — Barranquilla, Colombia">
